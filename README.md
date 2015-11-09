@@ -10,5 +10,5 @@ mkdir /backup/WWW
 
 mkdir /backup/DBs
 
-# Dont forget to create neccessary stuff
+# Dont forget to create install stuff
 apt-get install p7zip-full curl
