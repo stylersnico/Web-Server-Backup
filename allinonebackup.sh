@@ -61,7 +61,7 @@ cd /root/
 mv `date +%Y%m%d`.full.7z $ARCHIVEFOLDER
 
 #Storing old archive name
-datediff = `date -d "today - 30 days" +%Y%m%d`.full.7z
+datediff=`date -d "today - 30 days" +%Y%m%d`.full.7z
 
 #Sending / deleting archive to / from your awesome ftp storage
 curl -T $ARCHIVEFOLDER`date +%Y%m%d`.full.7z ftp://$FTPSERVER --user $FTPUSER:$FTPPASS
