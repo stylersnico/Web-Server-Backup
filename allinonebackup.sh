@@ -69,8 +69,8 @@ curl --quote "-dele $datediff" ftp://$FTPSERVER --user $FTPUSER:$FTPPASS
 
 #Deleting all locales backup files
 cd $DBBACKUPDIR
-rm *.tar.gz
+rm `date +%Y%m%d`.*.tar.gz
 cd $WWWBACKUPDIR
-rm *.sql
+rm `date +%Y%m%d`.*.sql
 cd $ARCHIVEFOLDER
-rm `date +%Y%m%d`.full.7z
+rm `date +%Y%m%d`.*.full.7z
