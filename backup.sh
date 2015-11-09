@@ -15,4 +15,4 @@ curl --quote "-dele $datediff30" ftp://server --user user:pass
 #Deleting all locales backup files
 rm /backup/WWW/*.tar.gz
 rm /backup/DBs/*.sql
-rm /home/stylersnico/*.7z
+rm /home/someuser/*.7z
