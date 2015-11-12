@@ -67,7 +67,11 @@ datediff=`date -d "today - 30 days" +%Y%m%d`.full.7z
 curl -T $ARCHIVEFOLDER`date +%Y%m%d`.full.7z ftp://$FTPSERVER --user $FTPUSER:$FTPPASS
 curl --quote "-dele $datediff" ftp://$FTPSERVER --user $FTPUSER:$FTPPASS
 
-#Deleting all locales backup files
+#####################################
+###Deleting all local backup files###
+#####################################
+
+### This part is failing, feel free to comit if you have a better solution ;)
 cd $DBBACKUPDIR
 rm `date +%Y%m%d`.*.tar.gz
 cd $WWWBACKUPDIR
