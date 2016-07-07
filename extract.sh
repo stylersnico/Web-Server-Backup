@@ -20,7 +20,7 @@ shapgp="`cat "${shapgptmp}"`"
 shapgplive="`sha512sum "${1}"`"
 
 echo "Checking file: "${1}""
-echo "Using SHA512 file: "${shapgp}""
+echo "Using SHA512 file: "${shapgptmp}""
 
 
 if [ "${shapgp}" != "${shapgplive}" ]
@@ -41,12 +41,13 @@ gpg --passphrase ${2} --batch --no-tty --yes ${1}
 
 za="`echo ""${date}".full.7z"`"
 zasha="`cat "${date}".full.7z.sha512`"
+zashaname="`echo ""${date}".full.7z.sha512"`"
 
 #Checking checksums
 shazalive="`sha512sum "${za}"`"
 
-echo "Checking file: "${zasha}""
-echo "Using SHA512 file: "${shazalive}""
+echo "Checking file: "${za}""
+echo "Using SHA512 file: "${zashaname}""
 
 
 if [ "${zasha}" != "${shazalive}" ]
@@ -60,7 +61,4 @@ fi
 #If checksums ok, extract
 7za x -p${3} ${za}
 
-echo "\
-\
-\
-Done"
+echo "Done"
