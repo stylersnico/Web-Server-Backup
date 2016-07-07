@@ -45,4 +45,4 @@ Debian 8
 
 An extraction tool is available here: https://github.com/stylersnico/Web-Server-Backup/blob/master/extract.sh
 
-Usage : <code>./extract.sh <archive.7zip.pgp> <pgp_password> <7zip_password></code>
+Usage : <code>./extract.sh archive.7zip.pgp pgp_password 7zip_password</code>
