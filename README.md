@@ -40,3 +40,9 @@ Debian 8
 
 ##Installation
 <code>cd /root && wget --no-check-certificate https://raw.githubusercontent.com/stylersnico/webserverbackup/master/backup.sh && chmod +x backup.sh && ./backup.sh</code>
+
+##Extraction tool 
+
+An extraction tool is available here: https://github.com/stylersnico/Web-Server-Backup/blob/master/extract.sh
+
+Usage : <code>./extract.sh <archive.7zip.pgp> <pgp_password> <7zip_password></code>
