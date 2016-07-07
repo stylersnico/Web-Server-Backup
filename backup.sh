@@ -106,7 +106,6 @@ sha512sum `date +%Y%m%d`.full.7z.gpg > `date +%Y%m%d`.full.7z.gpg.sha512
 mv `date +%Y%m%d`.full.7z.gpg $ARCHIVEFOLDER
 mv `date +%Y%m%d`.full.7z.sha512 $ARCHIVEFOLDER
 mv `date +%Y%m%d`.full.7z.gpg.sha512 $ARCHIVEFOLDER
-rm -f `date +%Y%m%d`.full.*
 
 
 ##################################
@@ -114,8 +113,6 @@ rm -f `date +%Y%m%d`.full.*
 ##################################
 
 cd $ARCHIVEFOLDER
-
-
 
 #Sending archive and SHA512sums to FTP storage
 curl -T $ARCHIVEFOLDER`date +%Y%m%d`.full.7z.gpg.sha512 ftp://$FTPSERVER --user $FTPUSER:$FTPPASS
@@ -127,6 +124,9 @@ curl --quote "-dele $datediff" ftp://$FTPSERVER --user $FTPUSER:$FTPPASS
 curl --quote "-dele $datediffsha1" ftp://$FTPSERVER --user $FTPUSER:$FTPPASS
 curl --quote "-dele $datediffsha2" ftp://$FTPSERVER --user $FTPUSER:$FTPPASS
 
+#Delete local files
+rm -f `date +%Y%m%d`.full.*
+
 
 #####################################
 ###Deleting all local backup files###
@@ -135,3 +135,4 @@ curl --quote "-dele $datediffsha2" ftp://$FTPSERVER --user $FTPUSER:$FTPPASS
 rm -rf $WWWBACKUPDIR
 rm -rf $LEBACKUPDIR
 rm -rf $DBBACKUPDIR
+rm -rf /tmp/backupworkingdir/
