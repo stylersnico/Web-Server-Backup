@@ -58,7 +58,7 @@ else
 fi
 
 #If checksums ok, extract
-7za e -p${3} ${za}
+7za x -p${3} ${za}
 
 echo "\
 \
