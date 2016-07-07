@@ -31,7 +31,7 @@ else
   echo "checksums OK, extracting GPG"
 fi
 
-
+#If checksums ok, extract
 gpg --passphrase ${2} --batch --no-tty --yes ${1}
 
 
@@ -57,6 +57,10 @@ else
   echo "checksums OK, extracting 7Zip"
 fi
 
+#If checksums ok, extract
 7za e -p${3} ${za}
 
-echo "Done"
+echo "\
+\
+\
+Done"
