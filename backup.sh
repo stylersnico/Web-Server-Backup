@@ -42,13 +42,6 @@ datediff=`date -d "today - "$days" days" +%Y%m%d`.full.7z.gpg
 datediffsha1=`date -d "today - "$days" days" +%Y%m%d`.full.7z.sha512
 datediffsha2=`date -d "today - "$days" days" +%Y%m%d`.full.7z.gpg.sha512
 
-#Auto-detecting GPG release installed on the system
-if [ -d "/usr/bin/gpg" ]; then
-  gpg="gpg"
-fi
-if [ -d "/usr/bin/gpg2" ]; then
-  gpg="gpg2"
-fi
 
 ###################
 ###Creating dirs###
@@ -115,7 +108,11 @@ cd /tmp/backupworkingdir/
 sha512sum `date +%Y%m%d`.full.7z > `date +%Y%m%d`.full.7z.sha512
 
 #Creating gpg-twofish encrypted file
-$gpg -c --passphrase $GPGPASSPHRASE --batch --no-tty --yes --cipher-algo $GPGALGO --s2k-digest-algo $GPGDIGEST `date +%Y%m%d`.full.7z
+if [ -f "/usr/bin/gpg2" ]; then
+  gpg2 -c --passphrase $GPGPASSPHRASE --batch --no-tty --yes --cipher-algo $GPGALGO --s2k-digest-algo $GPGDIGEST `date +%Y%m%d`.full.7z
+else
+  gpg -c --passphrase $GPGPASSPHRASE --batch --no-tty --yes --cipher-algo $GPGALGO --s2k-digest-algo $GPGDIGEST `date +%Y%m%d`.full.7z
+fi
 sha512sum `date +%Y%m%d`.full.7z.gpg > `date +%Y%m%d`.full.7z.gpg.sha512
 
 #move to archive folder for sending
