@@ -28,7 +28,7 @@ This script backup your webserver by doing the followings things :
 - Export of every MariaDB / MySQL database on your server
 - Making a 7zip aes256 encrypted archive of the above
 - Making a SHA512sum of the 7zip archive
-- Encrypting the 7zip archive a second time with gpg (Twofish)
+- Encrypting the 7zip archive a second time with gpg (Twofish + SHA512 hash - Edit vars if you want to change that)
 - Making a SHA512sum of the gpg archive
 - Exporting gpg archive and both SHA512sum to FTP
 
