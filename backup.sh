@@ -90,7 +90,7 @@ databases=`mysql -u $DBUSER -p$DBPASSWORD -e "SHOW DATABASES;" | tr -d "| " | gr
 
 #Backup all databases
 for db in $databases; do
-    if [[ "$db" != "information_schema" ]] && [[ "$db" != "performance_schema" ]] && [[ "$db" != "mysql" ]] && [[ "$db" != _* ]] ; then
+    if [[ "$db" != "information_schema" ]] && [[ "$db" != "performance_schema" ]] && [[ "$db" != _* ]] ; then
         echo "Dumping database: $db"
         mysqldump -u $DBUSER -p$DBPASSWORD --databases $db > `date +%Y%m%d`.$db.sql
     fi
